@@ -1,1 +1,3 @@
-"# ncc-net-basic" 
+# ncc-net-basic
+
+[Language Integrated Query (LINQ)](./linq)
