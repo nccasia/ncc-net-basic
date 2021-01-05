@@ -1,3 +1,3 @@
 # ncc-net-basic
 
-[Language Integrated Query (LINQ)](./linq)
+[Language Integrated Query (LINQ)](./LinQ)
