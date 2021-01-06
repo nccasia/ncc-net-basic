@@ -72,7 +72,8 @@ Scaffold-DbContext "Server=********;Database=Inventory;Integrated Security=True"
 - **Provider**—Sets which provider to use to connect database.
 - **OutputDir**—Sets the directory where the POCO classes are to be generated.
 
-In our case, the Products class and Inventory context class will be created. ![image](https://i.ibb.co/P6wtcPD/image.png)
+In our case, the Products class and Inventory context class will be created. 
+![image](https://i.ibb.co/P6wtcPD/image.png)
 
 Open the Inventory Context class file. You will see the database credentials are hard coded in the **OnConfiguring** method.
 
@@ -118,7 +119,8 @@ We need to choose a database **model class** and **data context class**, which w
 
 That’s it, we’re done. The scaffolding engine uses T4 templates to generate code for controller actions and views in their respective folders. This is the basic version of code; we can modify it as needed.
 
-Please find the files created, ![image](https://i.ibb.co/LZTL766/image.png)
+Please find the files created, 
+![image](https://i.ibb.co/LZTL766/image.png)
 
 Now we have fully functional CRUD operations on the Products table.
 
