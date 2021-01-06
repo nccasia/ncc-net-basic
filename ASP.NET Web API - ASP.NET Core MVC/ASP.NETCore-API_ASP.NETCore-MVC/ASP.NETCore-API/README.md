@@ -1,4 +1,4 @@
-# How to Build CRUD REST APIs with ASP.NET Core 3.1 and Entity Framework Core, Create JWT Tokens, and Secure APIs
+# How to Build CRUD REST APIs with ASP.NET Core 3.1, Create JWT Tokens, and Secure APIs
 In this blog, I am going to provide a walkthrough on developing REST APIs using ASP.NET Core 3.1, connecting with existing databases using Entity Framework, creating a JWT token, and securing APIs. I am going to develop a sample application for an inventory REST service with basic operations.
 
 ## What is a REST API?
