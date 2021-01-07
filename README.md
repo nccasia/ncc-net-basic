@@ -1,5 +1,5 @@
 # ncc-net-basic
 
-[Language Integrated Query (LINQ)](./LinQ)
+[Language Integrated Query (LINQ)](./linq)
 
-[.NET Core](./.Net%20Core)
+[.NET Core](./net-core)
