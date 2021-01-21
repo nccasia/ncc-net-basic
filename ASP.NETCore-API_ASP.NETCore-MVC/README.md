@@ -1,5 +1,5 @@
 # ASP.NET Core API - ASP.NET Core MVC
 
-[ASP.NET Core Web API](./ASP.NETCore-API)
+## [1. ASP.NET Core Web API](./ASP.NETCore-API)
 
-[ASP.NET Core MVC](./ASP.NETCore-MVC)
+## [2. ASP.NET Core MVC](./ASP.NETCore-MVC)
