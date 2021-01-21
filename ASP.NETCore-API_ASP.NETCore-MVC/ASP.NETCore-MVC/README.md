@@ -4,9 +4,31 @@ In this blog, I am going to provide a walk-through on developing a web applicati
 
 ASP.NET Core is a web framework from Microsoft. It is an open-source, cross-platform, cloud-optimized web framework that runs on Windows using .NET Framework and .NET Core, and on other platforms using .NET Core. It is a complete rewrite that unites ASP.NET MVC and Web API into a single programming model and removes system-related dependencies. This helps in deploying applications to non-Windows servers and improves performance.
 
+## MVC Partern
+
+### *What is MVC Pattern ?*
+
+- MVC stands for Model-View-Controller (MVC), it is a software design pattern that decouples various concerns in an application.
+
+- It is a powerful and effective way of designing applications that separates the UI (User Interface) logic from the data access and data manipulation logic.
+It’s explicit separation of concerns adds some extra complexity to an application’s design, but it provides enormous benefits to the application’s stability, functionality and testability.
+
+### *Why MVC Pattern ?*
+
+The MVC separates an application into three main aspects:
+
+- Model: A set of classes, which are basically the data you’re working with along with the business logic and rules that describes how the data can be manipulated.
+- View: It defines the UI of the application, in other words it’s the representation of the data that model contains.
+- Controller: A set of classes that handles user input and  acts upon the model to generate required view.
+
+![image](https://i.ibb.co/K5kBhy6/MVC-Diagram.jpg)
+
+If you look at the above diagram, In a typical MVC design pattern. The end User interacts with the View, which is basically the UI layer. Upon the user action e.a user clicks any button or mouse hover event, the View invokes corresponding Controller. The controller then determines the Model and updates it as per the requirement. Once the Model is updated then the Controller generates the View and updates it for the end user.
+
 ## Prerequisites
 
 A .NET Core application can be developed using these IDEs:
+
 - Visual Studio
 - Visual Studio Code
 - Command Prompt
@@ -18,6 +40,7 @@ Here, I am using Visual Studio to build the application. Be sure that the necess
 - SQL Server >= 2017
 
 ## Create database
+
 Let’s create a database on your local SQL Server. I hope you have installed SQL Server 2017 in your machine (you can use SQL Server 2008, 2012, 2016, or 2019, as well).
 
 **Step 1**: Create new Database called (**Inventory**) with SQL Server or Visual studio
@@ -51,6 +74,7 @@ Follow these steps to create an ASP.NET Core application.
 
 **Step 5**: Select .NET Core and ASP.NET Core 3.1 and choose the Web Application (Model-View-Controller) template. ![image](https://www.syncfusion.com/blogs/wp-content/uploads/2019/09/Create-a-new-ASP.NET-Core-Web-application.png) Click Create. Then the sample ASP.NET Core application will be created with this project structure.
 ## Install NuGet packages
+
 The following NuGet packages should be added to work with the SQL Server database and scaffolding. Run these commands in **Package Manager Console**:
 
 - Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design -Version 3.1.4
@@ -58,21 +82,26 @@ The following NuGet packages should be added to work with the SQL Server databas
 - Install-Package Microsoft.EntityFrameworkCore.SqlServer -Version 3.1.8
 
 ## Scaffolding
+
 ASP.NET Core has a feature called scaffolding, which uses T4 templates to generate code of common functionalities to help keep developers from writing repeat code. We use scaffolding to perform the following operations:
 
 - Generate entity POCO classes and a context class for the database.
 - Generate code for create, read, update, and delete (CRUD) operations of the database model using Entity Framework Core, which includes **controllers** and **views**.
 
 ## Connect application with database
+
 Run the following scaffold command in **Package Manager Console** to reverse engineer the database to create database context and entity POCO classes from tables. The scaffold command will create POCO class only for the tables that have a primary key.
+
 ```
 Scaffold-DbContext "Server=********;Database=Inventory;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
 ```
+
 - **Connection**—Sets connection string of the database.
 - **Provider**—Sets which provider to use to connect database.
 - **OutputDir**—Sets the directory where the POCO classes are to be generated.
 
 In our case, the Products class and Inventory context class will be created. 
+
 ![image](https://i.ibb.co/P6wtcPD/image.png)
 
 Open the Inventory Context class file. You will see the database credentials are hard coded in the **OnConfiguring** method.
@@ -96,6 +125,7 @@ And move the connection string to the appsettings.json file.
   }
 }
 ```
+
 Then we can register the database context service (**InventoryContext**) during application startup. In the following code, the connection string is read from the **appsettings** file and passed to the context service.
 
 ``` C#
@@ -107,9 +137,11 @@ public void ConfigureServices(IServiceCollection services)
     services.AddControllersWithViews();
 }
 ```
+
 Then this context service is injected with the required controllers via dependency injection.
 
 ### Perform CRUD operations
+
 Now we set up the database and configure it to work with Entity Framework Core. We’ll see how to perform CRUD operations.
 
 Right-click on the controller folder, select **add new item**, and then select **controller**. Then this dialog will be displayed. ![image](https://www.syncfusion.com/blogs/wp-content/uploads/2019/09/Adding-MVC-Controller-with-views-1.png)
@@ -128,6 +160,7 @@ Then, change the default application route to load the **Products Controller** i
 With the help of the scaffolding engine, developers need not write CRUD operations for each database model.
 
 ## Run application
+
 Click **Run** to view the application. A new browser tab will open and we’ll be able to see the product listing page. Since there is no product in the inventory, it’s empty. ![image](https://www.syncfusion.com/blogs/wp-content/uploads/2019/09/Empty-Product-Listing-1.png)
 
 Click **Create New** to add new products to the inventory.![imgage](https://www.syncfusion.com/blogs/wp-content/uploads/2019/09/Adding-new-product-to-inventory-1.png)
@@ -143,4 +176,5 @@ Click **Delete** to delete a product. Confirmation will be requested before it�
 Without writing a single line of code, we are able to create an application with basic CRUD operations with the help of the scaffolding engine.
 
 ## Conclusion
+
 In this blog, we have learned how to create an ASP.NET Core application and connect it to a database to perform basic CRUD operations using Entity Framework Core 3.1 and a code generation tool. I hope it was useful.
