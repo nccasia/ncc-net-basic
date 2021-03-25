@@ -16,8 +16,8 @@
 
 ## [8. C# - Anonymous Method](./AnonymousMethod)
 
-## [9. C# - Events](./)
+## [9. C# - Events](./Events)
 
-## [10. C# - Extension Method](./)
+## [10. C# - Extension Method](./ExtensionMethod)
 
 ## [11. C# - HttpClient](./)
